@@ -1,0 +1,164 @@
+body {
+  background: rgb(183, 179, 179);
+}
+
+ul {
+  position: relative;
+  list-style: none;
+}
+
+/*TEXT-SIDE-CUBE*/
+
+.list-item {
+  background: #2f1a5a;
+  color: rgba(255, 255, 255, 0.537);
+  text-align: center;
+  height: 3.5em; /*standart 2.5em*/
+  width: 5em; /*standart 4em*/
+  /*vertical-align: middle;*/
+  line-height: 3.5em;
+  position: sticky;
+  display: block;
+  text-decoration: none;
+  /*box-shadow: -1.8em 1.5em 0 #42247d43; /*e1e1e192*/
+  transition: all 0.25s linear;
+  border-bottom: lightgrey solid 1px;
+}
+
+.list-item:before,
+.list-item:after {
+  transition: all 0.25s linear;
+}
+
+/*Positioning of After and Before (ROOF and LEFT-SIDE */
+
+.list-item:before,
+.list-item:after {
+  content: "";
+  position: absolute;
+  transition: all 0.25s linear;
+  width: 0.5em; /*standart 0.5em*/
+}
+
+/*BOTTOM-SIDE-CUBE*/
+
+.list-item:after {
+  height: 5em; /*standart 4em*/
+  width: 0.25em;
+  background: #3e227669;
+  bottom: -2.65em; /*standart -2.25em*/
+  left: 2.25em; /*standart 1.5em*/
+  transform: rotate(90deg) skew(0, 45deg);
+}
+
+/*LEFT-SIDE-CUBE*/
+
+.list-item:before {
+  height: 3.5em; /*standart 2.5em*/
+  width: 0.25em;
+  background: #3e2276;
+  top: 0.15em; /*standart 0.25em*/
+  left: -0.25em; /*standart -0.5em*/
+  transform: skewY(-45deg);
+}
+
+ul {
+  display: inline-block;
+}
+
+/******************************
+        HOVER-EFFEKT
+******************************/
+
+.list-item:hover {
+  background: #f545a4;
+  color: white;
+  transform: translate(0.9em, -0.9em) rotate(-10deg);
+  transition: all 0.35s linear;
+  box-shadow: -2em 2em 0 #42247d6d /*#e1e1e11e*/;
+}
+
+/*LEFT-SIDE-CUBE*/
+
+.list-item:hover::before {
+  background: #bb357c;
+  width: 1em;
+  top: 0.5em;
+  left: -1em;
+}
+
+/*BOTTOM-SIDE-CUBE*/
+
+.list-item:hover::after {
+  background: #c6458af9;
+  width: 1em; /*standart 1em*/
+  bottom: -3em; /*standart -2.5em*/
+  left: 1.5em; /*standart 1em*/
+  height: 5em; /*standart 4em*/
+}
+
+/*******************************SECOND NAV*********************************/
+
+nav {
+  float: right;
+  position: relative;
+  top: -320px;
+  left: -550px;
+  background: transparent;
+}
+
+nav ul {
+  text-align: center;
+}
+
+nav ul li {
+  position: relative;
+  width: 70px;
+  cursor: pointer;
+  background: #3e227669;
+  text-transform: uppercase;
+  transition: all 0.4s ease-out;
+  margin: 1px;
+}
+
+nav ul li:after {
+  position: absolute;
+  background: white;
+  color: #f545a4;
+  top: 0;
+  left: 70px;
+  width: 70px;
+  height: 100%;
+  opacity: 0.5;
+  transform: perspective(400px) rotateY(90deg);
+  transform-origin: 0 100%;
+  transition: all 0.4s ease-out;
+}
+
+nav ul li:nth-child(1):after {
+  content: "Grüße";
+  line-height: 55px;
+}
+nav ul li:nth-child(2):after {
+  content: "aus";
+  line-height: 55px;
+}
+nav ul li:nth-child(3):after {
+  content: "FFM";
+  line-height: 55px;
+}
+
+nav ul li:hover:after {
+  opacity: 1;
+  transform: perspective(400px) rotateY(0deg) scale(1);
+}
+
+nav ul li > div {
+  display: inline-block;
+  padding: 25px 0;
+  background: transparent;
+}
+
+nav ul li div {
+  position: relative;
+}
